@@ -8,7 +8,7 @@ export const PokemonList = ( { pokemons } ) => {
     <div className='PokemonList'>
         {
             pokemons.map(pokemon => (
-                <PokemonCard pokemon={ pokemon } key={ pokemon.id }/>
+                <PokemonCard pokemon={ pokemon } key={ pokemon.name }/>
             ))
         }
     </div>
