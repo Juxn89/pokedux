@@ -4,15 +4,16 @@ import Meta from 'antd/lib/card/Meta';
 import { StarOutlined } from '@ant-design/icons';
 
 export const PokemonCard = ( { pokemon } ) => {
-    const { name } = pokemon;
+    const { name, sprites, abilities } = pokemon;
+    const allAbilities = abilities.map( item => item.ability.name).join(', ')
 
     return (
         <Card
             title= { name }
-            cover={ <img src={ 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png' } alt={ name }/> }
+            cover={ <img src={ sprites?.front_default || '' } alt={ name }/> }
             extra= { <StarOutlined />}
         >
-            <Meta description= { 'description' }/>
+            <Meta description= { <span><strong>Abilities: </strong>{allAbilities}</span>  }/>
         </Card>
     )
 }

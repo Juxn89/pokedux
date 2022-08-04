@@ -5,7 +5,7 @@ import { Searcher } from './components/Searcher';
 import { PokemonList } from './components/PokemonList';
 import { Col } from 'antd';
 
-import { getAllPokemons } from './api/pokeapi';
+import { getAllPokemons, getPokemonDetail } from './api/pokeapi';
 import { setPokemons } from './actions/index';
 
 import logo from './statics/logo.svg';
@@ -19,8 +19,11 @@ function App() {
   useEffect( () => {
     const getPokemons = async () => { 
       const data = await getAllPokemons();
+      const dataDetails = await Promise.all(
+        data.map(pokemon => getPokemonDetail(pokemon))
+      );
 
-      dispatch(setPokemons(data));
+      dispatch(setPokemons(dataDetails));
       setIsLoading(false);
     }
     
