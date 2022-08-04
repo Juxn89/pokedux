@@ -9,8 +9,10 @@ export const PokemonCard = ( { pokemon } ) => {
 
     return (
         <Card
+            className='card-item'
             title= { name }
-            cover={ <img src={ sprites?.front_default || '' } alt={ name }/> }
+            cover= { <img src={ sprites?.front_default || '' } alt={ name }/> }
+            style= { { width: 250 } }
             extra= { <StarOutlined />}
         >
             <Meta description= { <span><strong>Abilities: </strong>{allAbilities}</span>  }/>

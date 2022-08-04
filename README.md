@@ -5,6 +5,9 @@ Use redux with react
 ### Redux Devtools
 - [redux-devtools](https://github.com/reduxjs/redux-devtools/tree/main/extension#installation)
 
+### Thunk
+- [Redux Thunk](https://www.digitalocean.com/community/tutorials/redux-redux-thunk)
+
 ## Others
 ### Trird-party APIs
 - [PokeApi](https://pokeapi.co/)

@@ -1,9 +1,25 @@
 @import 'antd/dist/antd.css';
 
+:root {
+  --primary: #6E85B7;
+  --primary-light: #B2C8DF;
+  --secondary: #C4D7E0;
+  --secondary-light: #C4D7E0;
+}
+
+body {  
+  background-color: var(--primary);
+}
+
 .App {
   margin-top: 3rem;
 }
 
 .App img {
   margin-bottom: 3rem;
+}
+
+.card-item:hover {
+  cursor: pointer;
+  background-color: var(--secondary);
 }
