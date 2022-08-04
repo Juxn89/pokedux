@@ -2,10 +2,17 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { pokemonsReducer } from './reducers/pokemonsReducer';
+import { Provider } from 'react-redux';
+import { legacy_createStore as createStore } from 'redux'
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+const store = createStore(pokemonsReducer);
+
 root.render(
-  <App />
+  <Provider store={ store }>
+    <App />
+  </Provider>
 )
