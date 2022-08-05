@@ -7,6 +7,10 @@ Use redux with react
 
 ### Thunk
 - [Redux Thunk](https://www.digitalocean.com/community/tutorials/redux-redux-thunk)
+- [Redux Thunk vs Redux Saga](https://www.eternussolutions.com/2020/12/21/redux-thunk-redux-saga/)
+
+### Saga
+- [Sagas vs Thunk](https://www.paradigmadigital.com/dev/sagas-vs-thunk/)
 
 ## Others
 ### Trird-party APIs
