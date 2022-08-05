@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Col, Spin } from 'antd';
-import {  } from 'immutable';
 
 import { Searcher } from './components/Searcher';
 import { PokemonList } from './components/PokemonList';
@@ -13,8 +12,8 @@ import './App.css';
 import logo from './statics/logo.svg';
 
 function App() {
-  const pokemons = useSelector(state => state.get('pokemons'));
-  const isLoading = useSelector(state => state.get('isLoading'));
+  const pokemons = useSelector(state => state.getIn(['data', 'pokemons']));
+  const isLoading = useSelector(state => state.getIn(['ui', 'isLoading']));
 
   const dispatch = useDispatch();
 
