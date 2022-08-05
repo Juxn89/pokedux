@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
-import { Spin } from 'antd';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Col, Spin } from 'antd';
+import {  } from 'immutable';
 
 import { Searcher } from './components/Searcher';
 import { PokemonList } from './components/PokemonList';
-import { Col } from 'antd';
 
 import { getAllPokemons } from './api/pokeapi';
 import { getPokemonsWithDetails, setLoading } from './actions/index';
 
-import logo from './statics/logo.svg';
 import './App.css';
+import logo from './statics/logo.svg';
 
 function App() {
-  const pokemons = useSelector(state => state.pokemons);
-  const isLoading = useSelector(state => state.isLoading);
+  const pokemons = useSelector(state => state.get('pokemons'));
+  const isLoading = useSelector(state => state.get('isLoading'));
 
   const dispatch = useDispatch();
 
@@ -45,7 +45,7 @@ function App() {
         <Spin spinning={ isLoading } size='large'/>
       </Col>
       {
-        !isLoading && <PokemonList pokemons={ pokemons } />  
+        !isLoading && <PokemonList pokemons={ pokemons.toJS() } />  
       }           
     </div>
   );
