@@ -5,30 +5,19 @@ import { Col, Spin } from 'antd';
 import { Searcher } from './components/Searcher';
 import { PokemonList } from './components/PokemonList';
 
-import { getAllPokemons } from './api/pokeapi';
-import { getPokemonsWithDetails, setLoading } from './actions/index';
+import { fetchPokemonWithDetails } from './slices/dataSlice';
 
 import './App.css';
 import logo from './statics/logo.svg';
 
 function App() {
-  const pokemons = useSelector(state => state.getIn(['data', 'pokemons']));
-  const isLoading = useSelector(state => state.getIn(['ui', 'isLoading']));
-
+  const pokemons = useSelector(state => state.data.pokemons);
+  const isLoading = useSelector(state => state.ui.isLoading);
+  
   const dispatch = useDispatch();
-
+  
   useEffect( () => {
-    const getPokemons = async () => { 
-      const data = await getAllPokemons();
-
-      dispatch(getPokemonsWithDetails(data));
-
-      setTimeout(() => {
-        dispatch(setLoading(false));
-      }, 500);
-    }
-    
-    getPokemons();
+    dispatch(fetchPokemonWithDetails());
   }, [] )
   
 
@@ -44,7 +33,7 @@ function App() {
         <Spin spinning={ isLoading } size='large'/>
       </Col>
       {
-        !isLoading && <PokemonList pokemons={ pokemons.toJS() } />  
+        !isLoading && <PokemonList pokemons={ pokemons } />  
       }           
     </div>
   );

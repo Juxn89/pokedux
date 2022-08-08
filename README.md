@@ -1,5 +1,12 @@
-# pokedux
+<style>
+    #div { color: red }
+</style>
+# Pokedux
 Use redux with react
+
+<p id="div">
+Hola
+</p>
 
 ## Redux
 ### Redux Devtools

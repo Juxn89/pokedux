@@ -4,7 +4,6 @@ import { PokemonCard } from './PokemonCard';
 import '../styles/PokemonList.css';
 
 export const PokemonList = ( { pokemons } ) => {
-  console.log(pokemons);
   return (
     <div className='PokemonList'>
         {

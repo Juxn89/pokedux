@@ -3,10 +3,10 @@ import { Card } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import { StarButtom } from './StarButtom';
 import { useDispatch } from 'react-redux';
-import { setFavorite } from '../actions';
+import { setFavorite } from '../slices/dataSlice';
 
 export const PokemonCard = ( { pokemon } ) => {
-    const { id, name, sprites, abilities, types } = pokemon;
+    const { name, sprites, abilities, types } = pokemon;
     const allAbilities = abilities.map( item => item.ability.name).join(', ');
     const allTypes = types.map( item => item.type.name).join(', ');
 
